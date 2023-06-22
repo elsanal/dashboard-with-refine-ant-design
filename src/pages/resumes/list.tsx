@@ -1,5 +1,5 @@
 import React from "react";
-import { IResourceComponentsProps, BaseRecord, useMany } from "@refinedev/core";
+import { IResourceComponentsProps, BaseRecord} from "@refinedev/core";
 import {
   useTable,
   List,
@@ -15,10 +15,7 @@ export const ResumeList: React.FC<IResourceComponentsProps> = () => {
     syncWithLocation: true
   });
 
-  // const { data: categoryData, isLoading: categoryIsLoading } = useMany({
-  //     resource: "resume",
-  //     ids: tableProps?.dataSource?.map((item) => item?.experiences.id) ?? [],
-  // });
+
   const skills =
     tableProps?.dataSource?.map((item) => item.skills) ?? [];
     const languages =

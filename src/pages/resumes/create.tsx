@@ -1,15 +1,14 @@
 import React from "react";
-import { IResourceComponentsProps, file2Base64 } from "@refinedev/core";
-import { Create, getValueFromEvent, useForm, useSelect } from "@refinedev/antd";
-import { Form, Input, Select, DatePicker, Upload, Space, Button } from "antd";
-import dayjs from "dayjs";
+import { IResourceComponentsProps} from "@refinedev/core";
+import { Create, getValueFromEvent, useForm } from "@refinedev/antd";
+import { Form, Input, Upload, Space, Button } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import { ImageToBase64 } from "functions/convertToBase64";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
-import TextArea from "antd/es/input/TextArea";
+
 
 export const ResumeCreate: React.FC<IResourceComponentsProps> = () => {
-  const { formProps, saveButtonProps, queryResult } = useForm();
+  const { formProps, saveButtonProps} = useForm();
 
   return (
     <Create saveButtonProps={saveButtonProps}>

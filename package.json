@@ -10,7 +10,6 @@
     "@refinedev/inferencer": "^3.1.4",
     "@refinedev/kbar": "^1.1.0",
     "@refinedev/react-router-v6": "^4.1.0",
-    "@refinedev/simple-rest": "^4.5.0",
     "antd": "^5.0.5",
     "axios": "^0.26.1",
     "dotenv": "^16.0.3",

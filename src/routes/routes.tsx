@@ -1,9 +1,4 @@
-import { ErrorComponent, ThemedLayoutV2 } from "@refinedev/antd"
-import { ILogData, IResourceComponentsProps } from "@refinedev/core"
-import  {NavigateToResource,} from "@refinedev/react-router-v6";
-import React from "react";
-import { ReactFragment } from "react";
-import { Outlet, Route } from "react-router-dom"
+import { Route } from "react-router-dom"
 
 interface Component{
     list: JSX.Element;

@@ -1,11 +1,8 @@
 import React from "react";
-import { IResourceComponentsProps, useShow, useOne } from "@refinedev/core";
+import { IResourceComponentsProps, useShow} from "@refinedev/core";
 import {
     Show,
-    NumberField,
-    TagField,
     TextField,
-    MarkdownField,
     DateField,
 } from "@refinedev/antd";
 import { Typography } from "antd";

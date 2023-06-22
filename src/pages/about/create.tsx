@@ -1,31 +1,12 @@
 import React from "react";
-import { IResourceComponentsProps, file2Base64 } from "@refinedev/core";
-import { Create, getValueFromEvent, useForm, useSelect } from "@refinedev/antd";
-import { Form, Input, Select, DatePicker, Upload, Button, Space, InputNumber } from "antd";
-import dayjs from "dayjs";
-import { v4 as uuidv4 } from "uuid";
+import { IResourceComponentsProps} from "@refinedev/core";
+import { Create, getValueFromEvent, useForm, } from "@refinedev/antd";
+import { Form, Input,Upload, Button, Space, InputNumber } from "antd";
 import { ImageToBase64 } from "functions/convertToBase64";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 
 export const AboutCreate: React.FC<IResourceComponentsProps> = () => {
-  const { formProps, saveButtonProps, queryResult } = useForm();
-  const formItemLayout = {
-    labelCol: {
-      xs: { span: 24 },
-      sm: { span: 4 }
-    },
-    wrapperCol: {
-      xs: { span: 24 },
-      sm: { span: 20 }
-    }
-  };
-
-  const formItemLayoutWithOutLabel = {
-    wrapperCol: {
-      xs: { span: 24, offset: 0 },
-      sm: { span: 20, offset: 4 }
-    }
-  };
+  const { formProps, saveButtonProps} = useForm();
 
   const [form] = Form.useForm();
 

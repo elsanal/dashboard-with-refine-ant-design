@@ -1,12 +1,11 @@
 import React from "react";
 import { IResourceComponentsProps } from "@refinedev/core";
-import { Edit, getValueFromEvent, useForm, useSelect } from "@refinedev/antd";
-import { Form, Input, Select, DatePicker, Upload } from "antd";
-import dayjs from "dayjs";
+import { Edit, getValueFromEvent, useForm} from "@refinedev/antd";
+import { Form, Input, Upload } from "antd";
 import { ImageToBase64 } from "functions/convertToBase64";
 
 export const ServiceEdit: React.FC<IResourceComponentsProps> = () => {
-  const { formProps, saveButtonProps, queryResult } = useForm();
+  const { formProps, saveButtonProps } = useForm();
 
   return (
     <Edit saveButtonProps={saveButtonProps}>
