@@ -7,7 +7,10 @@
 
 # testing
 /coverage
-
+/README.MD
+/fly.toml
+/.dockerignore
+/DockerFile
 # production
 /build
 
@@ -17,7 +20,6 @@
 .env.development.local
 .env.test.local
 .env.production.local
-.gitignore
 .env
 
 
