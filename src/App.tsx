@@ -10,9 +10,7 @@ import routerBindings, {
   UnsavedChangesNotifier
 } from "@refinedev/react-router-v6";
 import "@refinedev/antd/dist/reset.css";
-import { dataProvider } from "data/dataProvider";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-
 import { ConfigProvider } from "antd";
 import { ServiceCreate } from "pages/services/create";
 import { ServiceList } from "pages/services/list";
@@ -31,6 +29,7 @@ import { ResumeCreate } from "pages/resumes/create";
 import { ResumeEdit } from "pages/resumes/edit";
 import { ResumeList } from "pages/resumes/list";
 import { ResumeShow } from "pages/resumes/show";
+import { dataProvider } from "data/dataProvider";
 
 const App: React.FC = () => {
   return (

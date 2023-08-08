@@ -1,5 +1,5 @@
 import { CrudFilters, DataProvider } from "@refinedev/core";
-import { stringify } from "query-string";
+import stringify  from "query-string";
 import axiosInstance from "./utility";
 import { mapOperator } from "./mapOperator";
 
@@ -44,7 +44,7 @@ export const dataProvider = (apiUrl: string): DataProvider => ({
         const queryFilters = generateFilters(filters);
 
         const { data, headers } = await axiosInstance.get(
-            `${url}?${stringify(query)}&${stringify(queryFilters)}`
+            `${url}?${stringify.stringify(query)}&${stringify.stringify(queryFilters)}`
         );
 
         const total = +headers["x-total-count"];
@@ -106,7 +106,7 @@ export const dataProvider = (apiUrl: string): DataProvider => ({
     // get many documents
     getMany: async ({ resource, ids }) => {
         const { data } = await axiosInstance.get(
-            `${apiUrl}/${resource}?${stringify({ id: ids })}`,
+            `${apiUrl}/${resource}?${stringify.stringify({ id: ids })}`,
         );
 
         return {
