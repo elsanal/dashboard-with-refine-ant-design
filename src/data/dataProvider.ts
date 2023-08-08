@@ -101,7 +101,7 @@ export const dataProvider = (apiUrl: string): DataProvider => ({
     },
 
     // get api url
-    getApiUrl: () => apiUrl,
+    getApiUrl: () =>{return apiUrl} ,
 
     // get many documents
     getMany: async ({ resource, ids }) => {
