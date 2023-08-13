@@ -12,7 +12,7 @@
 /.dockerignore
 /DockerFile
 # production
-
+/build
 
 # misc
 .DS_Store
