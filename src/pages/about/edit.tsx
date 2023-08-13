@@ -10,31 +10,27 @@ export const AboutEdit: React.FC<IResourceComponentsProps> = () => {
 
   return (
     <Edit saveButtonProps={saveButtonProps}>
-            <Form
+      <Form
         form={form}
         {...formProps}
         layout="vertical"
-        onFinish={async(values)=> ImageToBase64(values, formProps, false)}>
+        onFinish={async (values) => ImageToBase64(values, formProps, false)}
+      >
         <Form.Item label="Name" name={["name"]} rules={[{ required: true }]}>
           <Input />
         </Form.Item>
         <Form.Item
           label="Introduction"
           name="introduction"
-          rules={[{ required: true }]} >
+          rules={[{ required: true }]}
+        >
           <Input.TextArea rows={5} />
         </Form.Item>
-        <Form.Item
-          label="Email"
-          name={["email"]}
-          rules={[{ required: false }]} >
-          <Input type="email"/>
+        <Form.Item label="Email" name={["email"]} rules={[{ required: false }]}>
+          <Input type="email" />
         </Form.Item>
-        <Form.Item
-          label="Phone"
-          name={["phone"]}
-          rules={[{ required: false }]} >
-          <InputNumber style={{minWidth:'300px'}} />
+        <Form.Item label="Phone" name={["phone"]} rules={[{ required: false }]}>
+          <InputNumber style={{ minWidth: "300px" }} />
         </Form.Item>
         <Form.List name="network">
           {(fields, { add, remove }) => (
@@ -42,20 +38,26 @@ export const AboutEdit: React.FC<IResourceComponentsProps> = () => {
               {fields.map((field) => (
                 <Space key={field.key} align="baseline">
                   <Form.Item
-                        {...field}
-                        label="Name"
-                        name={[field.name, "name"]}
-                        rules={[{ required: true, message: "Missing name" }]}
-                      >
-                        <Input />
-                   </Form.Item>
-
+                    {...fields}
+                    name={[field.name, 'image']}
+                    valuePropName="fileList"
+                    getValueFromEvent={getValueFromEvent}
+                    noStyle
+                    rules={[{required: true, message: 'Missing image'}]}>
+                    <Upload.Dragger
+                      listType="picture"
+                      multiple={false}
+                      beforeUpload={() => false}>
+                      <p className="ant-upload-text">
+                        Drag & drop a file in this area
+                      </p>
+                    </Upload.Dragger>
+                  </Form.Item>
                   <Form.Item
                     {...field}
                     label="Link"
                     name={[field.name, "link"]}
-                    rules={[{ required: true, message: "Missing link" }]}
-                  >
+                    rules={[{ required: true, message: "Missing link" }]}>
                     <Input />
                   </Form.Item>
                   <MinusCircleOutlined onClick={() => remove(field.name)} />
@@ -66,7 +68,8 @@ export const AboutEdit: React.FC<IResourceComponentsProps> = () => {
                   type="dashed"
                   onClick={() => add()}
                   block
-                  icon={<PlusOutlined />} >
+                  icon={<PlusOutlined />}
+                >
                   Add social network
                 </Button>
               </Form.Item>
@@ -83,11 +86,13 @@ export const AboutEdit: React.FC<IResourceComponentsProps> = () => {
               {
                 required: true
               }
-            ]} >
+            ]}
+          >
             <Upload.Dragger
               listType="picture"
               multiple
-              beforeUpload={() => false} >
+              beforeUpload={() => false}
+            >
               <p className="ant-upload-text">Drag & drop a file in this area</p>
             </Upload.Dragger>
           </Form.Item>
