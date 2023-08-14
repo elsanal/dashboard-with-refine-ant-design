@@ -4,6 +4,9 @@ import { Create, TextField, getValueFromEvent, useForm } from "@refinedev/antd";
 import { Form, Input,  Upload, Button, Space } from "antd";
 import { ImageToBase64 } from "functions/convertToBase64";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; 
+
 
 export const ProjectCreate: React.FC<IResourceComponentsProps> = () => {
   const { formProps, saveButtonProps,  } = useForm();
@@ -23,9 +26,8 @@ export const ProjectCreate: React.FC<IResourceComponentsProps> = () => {
         <Form.Item
           label="Description"
           name="description"
-          rules={[{ required: true }]}
-        >
-          <Input.TextArea rows={5} />
+          rules={[{ required: true }]} >
+          <ReactQuill theme="snow" />
         </Form.Item>
         <Form.Item
           label="Github"

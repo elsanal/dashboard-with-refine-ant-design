@@ -4,6 +4,9 @@ import { Edit, getValueFromEvent, useForm } from "@refinedev/antd";
 import { Form, Input, Upload, InputNumber, Space, Button } from "antd";
 import { ImageToBase64 } from "functions/convertToBase64";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; 
+
 
 export const AboutEdit: React.FC<IResourceComponentsProps> = () => {
   const { formProps, saveButtonProps, form } = useForm();
@@ -24,7 +27,7 @@ export const AboutEdit: React.FC<IResourceComponentsProps> = () => {
           name="introduction"
           rules={[{ required: true }]}
         >
-          <Input.TextArea rows={5} />
+           <ReactQuill theme="snow" />
         </Form.Item>
         <Form.Item label="Email" name={["email"]} rules={[{ required: false }]}>
           <Input type="email" />

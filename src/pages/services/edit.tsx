@@ -1,8 +1,9 @@
 import React from "react";
 import { IResourceComponentsProps } from "@refinedev/core";
-import { Edit, getValueFromEvent, useForm} from "@refinedev/antd";
+import { Edit, useForm} from "@refinedev/antd";
 import { Form, Input, Upload } from "antd";
-import { ImageToBase64 } from "functions/convertToBase64";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; 
 
 export const ServiceEdit: React.FC<IResourceComponentsProps> = () => {
   const { formProps, saveButtonProps } = useForm();
@@ -11,9 +12,7 @@ export const ServiceEdit: React.FC<IResourceComponentsProps> = () => {
     <Edit saveButtonProps={saveButtonProps}>
       <Form
         {...formProps}
-        layout="vertical"
-        onFinish={async(values)=> ImageToBase64(values, formProps, false)}
-      >
+        layout="vertical">
         <Form.Item label="Title" name={["title"]} rules={[{ required: true }]}>
           <Input />
         </Form.Item>
@@ -26,31 +25,10 @@ export const ServiceEdit: React.FC<IResourceComponentsProps> = () => {
             }
           ]}
         >
-          <Input.TextArea rows={5} />
+          <ReactQuill theme="snow" />
         </Form.Item>
         <Form.Item label="Icon" name={["icon_id"]} rules={[{ required: true }]}>
           <Input />
-        </Form.Item>
-        <Form.Item label="Image">
-          <Form.Item
-            name="image"
-            valuePropName="fileList"
-            getValueFromEvent={getValueFromEvent}
-            noStyle
-            rules={[
-              {
-                required: false
-              }
-            ]}
-          >
-            <Upload.Dragger
-              listType="picture"
-              multiple
-              beforeUpload={()=> false}
-            >
-              <p className="ant-upload-text">Drag & drop a file in this area</p>
-            </Upload.Dragger>
-          </Form.Item>
         </Form.Item>
       </Form>
     </Edit>

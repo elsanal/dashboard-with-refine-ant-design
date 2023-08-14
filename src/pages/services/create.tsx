@@ -1,9 +1,10 @@
 import React from "react";
 import { IResourceComponentsProps } from "@refinedev/core";
-import { Create, getValueFromEvent, useForm } from "@refinedev/antd";
+import { Create, useForm } from "@refinedev/antd";
 import { Form, Input, Upload } from "antd";
 import { v4 as uuidv4 } from "uuid";
-import { ImageToBase64 } from "functions/convertToBase64";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; 
 
 export const ServiceCreate: React.FC<IResourceComponentsProps> = () => {
   const { formProps, saveButtonProps} = useForm();
@@ -12,9 +13,7 @@ export const ServiceCreate: React.FC<IResourceComponentsProps> = () => {
     <Create saveButtonProps={saveButtonProps}>
       <Form
         {...formProps} id={uuidv4()}
-        layout="vertical"
-        onFinish={async(values)=> ImageToBase64(values, formProps, true)}
-      >
+        layout="vertical" >
         <Form.Item label="Title" name={["title"]} rules={[{ required: true }]}>
           <Input />
         </Form.Item>
@@ -27,35 +26,15 @@ export const ServiceCreate: React.FC<IResourceComponentsProps> = () => {
             }
           ]}
         >
-          <Input.TextArea rows={5} />
+         <ReactQuill
+        theme="snow" 
+        />
         </Form.Item>
         <Form.Item
-          label="Icon"
+          label="image"
           name={["icon_id"]}
-          rules={[{ required: true }]}
-        >
+          rules={[{ required: true }]}>
           <Input />
-        </Form.Item>
-        <Form.Item label="Image">
-          <Form.Item
-            name="image"
-            valuePropName="fileList"
-            getValueFromEvent={getValueFromEvent}
-            noStyle
-            rules={[
-              {
-                required: true
-              }
-            ]}
-          >
-            <Upload.Dragger
-              listType="picture"
-              multiple
-              beforeUpload={()=> false}
-            >
-              <p className="ant-upload-text">Drag & drop a file in this area</p>
-            </Upload.Dragger>
-          </Form.Item>
         </Form.Item>
       </Form>
     </Create>

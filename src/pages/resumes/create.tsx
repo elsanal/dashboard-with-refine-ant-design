@@ -5,6 +5,8 @@ import { Form, Input, Upload, Space, Button } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import { ImageToBase64 } from "functions/convertToBase64";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; 
 
 
 export const ResumeCreate: React.FC<IResourceComponentsProps> = () => {
@@ -110,7 +112,7 @@ export const ResumeCreate: React.FC<IResourceComponentsProps> = () => {
                     label="Experience"
                     name={[field.name, "experience"]}
                     rules={[{ required: true, message: "Missing experience" }]} >
-                    <Input.TextArea rows={5} />
+                    <ReactQuill theme="snow" />
                   </Form.Item>
                   <MinusCircleOutlined onClick={() => remove(field.name)} />
                 </Space>
